@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react'
 import sdk from '@farcaster/frame-sdk';
-import { Context } from '@farcaster/frame-sdk';
 import { SpotifyFeed } from './components/SpotifyFeed';
 
 function App() {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
-  const [context, setContext] = useState<Context.FrameContext>();
 
   useEffect(() => {
     const load = async () => {
-      setContext(await sdk.context);
       sdk.actions.ready();
     };
     if (sdk && !isSDKLoaded) {
