@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { SpotifyCard } from "./SpotifyCard";
 import { Cast } from "../lib/types";
 import { HeadphonesIcon } from "lucide-react";
@@ -9,7 +9,6 @@ export function SpotifyFeed() {
   const [casts, setCasts] = useState<Cast[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [frameAdded, setFrameAdded] = useState(false);
 
   const [context, setContext] = useState<Context.FrameContext>();
@@ -48,37 +47,26 @@ export function SpotifyFeed() {
   }, []);
 
   useEffect(() => {
-    if (!sdk || !context || frameAdded) return;
+    if (!context || frameAdded) return;
 
-    const handleScroll = () => {
-      // Clear any existing timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-
-      // Set a new timeout for 3 seconds
-      scrollTimeoutRef.current = setTimeout(async () => {
-        try {
-          await sdk.actions.addFrame();
+    // Simply wait 4 seconds then add the frame
+    const timer = setTimeout(async () => {
+      try {
+        const status = await sdk.actions.addFrame();
+        if (status.notificationDetails) {
           setFrameAdded(true);
-          console.log("Frame added after scrolling");
-        } catch (err) {
-          console.error("Failed to add frame:", err);
+          console.log("Frame added after 4 seconds");
         }
-      }, 3000); // 3 seconds
-    };
-
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
+      } catch (err) {
+        console.error("Failed to add frame:", err);
+      }
+    }, 4000); // 4 seconds
 
     // Cleanup
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
+      clearTimeout(timer);
     };
-  }, [sdk, context, frameAdded]);
+  }, [context, frameAdded]);
 
   // Rest of your component's code...
 
