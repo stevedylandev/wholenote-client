@@ -7,7 +7,7 @@ import { Context } from "@farcaster/frame-sdk"
 
 type SpotifyCardProps = {
   cast: Cast;
-  context: Context.FrameContext;
+  context: Context.FrameContext | undefined
 };
 
 export function SpotifyCard({ cast, context }: SpotifyCardProps) {
