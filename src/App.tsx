@@ -28,11 +28,7 @@ function App() {
         <header className="text-center mb-8">
           <h1 className="text-5xl font-black mb-2">Wholenote</h1>
           <p className="text-muted-foreground">Discover music shared on Farcaster</p>
-          {context && (
-            <p className="mt-4">Hello, {context.user.displayName}!</p>
-          )}
         </header>
-
         <SpotifyFeed />
       </div>
     </main>
