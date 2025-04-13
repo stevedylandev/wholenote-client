@@ -1,0 +1,6 @@
+{
+  "domain": "wholenote",
+  "buildCommand": "npm run build",
+  "buildDir": "dist",
+  "siteId": "af86ac8b-332a-4bc6-9b85-689a60f8ba09"
+}

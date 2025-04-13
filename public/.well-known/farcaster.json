@@ -1,0 +1,17 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjYwMjMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHg0NTYxMzExNjFmODNDN0Q3ZkRBMTViMzJhNWY3QzIxRkQ0RTI3RTk2In0",
+    "payload": "eyJkb21haW4iOiJ3aG9sZW5vdGUubGl2ZSJ9",
+    "signature": "MHg5ZGI4M2YyOTdmNzM3ODRkMTY5NDk2ODE3YmM1MzRiNGZkMjA4ZmUwNTZiZjU0ZmU2Yzc0MDc4YWU2MTM4ODRhM2E2MjkyY2IzNmU5ZTFhZDE0ZDdkMTEyN2E1NzMxYWZlOGNmNWM5NmI0Y2JhN2NiYTA5NThlNDRhMWZhOWU0YTFi"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Wholenote",
+    "iconUrl": "https://wholenote.live/icon.png",
+    "homeUrl": "https://wholenote.live",
+    "imageUrl": "https://wholenote.live/image.png",
+    "buttonTitle": "Listen",
+    "splashImageUrl": "https://wholenote.live/splash.png",
+    "splashBackgroundColor": "#000000"
+  }
+}
