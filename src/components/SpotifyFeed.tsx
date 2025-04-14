@@ -23,8 +23,6 @@ export function SpotifyFeed() {
     }
   }, []);
 
-
-
   useEffect(() => {
     async function fetchSpotifyCasts() {
       try {
@@ -49,7 +47,6 @@ export function SpotifyFeed() {
   useEffect(() => {
     if (!context || frameAdded) return;
 
-    // Simply wait 4 seconds then add the frame
     const timer = setTimeout(async () => {
       try {
         const status = await sdk.actions.addFrame();
@@ -60,15 +57,12 @@ export function SpotifyFeed() {
       } catch (err) {
         console.error("Failed to add frame:", err);
       }
-    }, 4000); // 4 seconds
+    }, 4000);
 
-    // Cleanup
     return () => {
       clearTimeout(timer);
     };
   }, [context, frameAdded]);
-
-  // Rest of your component's code...
 
 
   if (loading) {

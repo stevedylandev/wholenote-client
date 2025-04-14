@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import sdk from '@farcaster/frame-sdk';
 import { SpotifyFeed } from './SpotifyFeed';
+import { ShareForm } from './ShareForm';
 
 function Home() {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
@@ -26,6 +27,7 @@ function Home() {
           <h1 className="text-5xl font-black mb-2">Wholenote</h1>
           <p className="text-muted-foreground">Discover music shared on Farcaster</p>
         </header>
+        <ShareForm />
         <SpotifyFeed />
       </div>
     </main>
