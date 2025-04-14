@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="fc:frame" content='{"version":"next","imageUrl":"https://wholenote.live/image.png","button":{"title":"Listen","action":{"type":"launch_frame","name":"Wholenote","url":"https://wholenote.live","splashImageUrl":"https://wholenote.live/splash.png","splashBackgroundColor":"#000000"}}}' />
+    <meta name="fc:frame" content='{"version":"next","imageUrl":"%VITE_BASE_URL%/image.png","button":{"title":"Listen","action":{"type":"launch_frame","name":"Wholenote","url":"%VITE_BASE_URL%","splashImageUrl":"%VITE_BASE_URL%/splash.png","splashBackgroundColor":"#000000"}}}' />
     <title>Wholenote</title>
     <meta name="description" content="Discover music shared on Farcaster">
 
@@ -24,6 +24,11 @@
     <meta name="twitter:description" content="Discover music shared on Farcaster">
     <meta name="twitter:image" content="https://wholenote.live/og.png">
 
+    <script>
+       window.ENV = {
+         VITE_BASE_URL: "%VITE_BASE_URL%"
+       };
+     </script>
   </head>
   <body>
     <div id="root"></div>

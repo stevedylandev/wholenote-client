@@ -43,7 +43,7 @@ function SharedSong() {
         <Card className="w-full max-w-xl mx-auto">
           <CardContent className="space-y-4">
             <div className="spotify-embed w-full">
-              <SpotifyPlayer embedUrl={embedUrl} />
+              <SpotifyPlayer embedUrl={embedUrl} height={400} />
             </div>
             <div className='flex flex-row items-center gap-4'>
               <Link href={spotifyUrl}>
