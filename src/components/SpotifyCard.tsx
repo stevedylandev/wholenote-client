@@ -31,8 +31,24 @@ export function SpotifyCard({ cast, context }: SpotifyCardProps) {
   // Check all embeds for a Spotify URL
   if (cast.embeds && cast.embeds.length > 0) {
     for (const embed of cast.embeds) {
-      if (embed.url && validateSpotifyUrl(embed.url)) {
-        spotifyUrl = embed.url;
+      if (!embed.url) continue;
+
+      let urlToCheck = embed.url;
+
+      // Check if it's a Wholenote URL
+      if (embed.url.includes('share.wholenote.live')) {
+        // Extract the spotify URL from the query param
+        const urlParams = new URL(embed.url).searchParams;
+        const spotifyUrlParam = urlParams.get('url');
+
+        if (spotifyUrlParam) {
+          urlToCheck = spotifyUrlParam;
+        }
+      }
+
+      // Now validate the URL (either original or extracted from Wholenote)
+      if (validateSpotifyUrl(urlToCheck)) {
+        spotifyUrl = urlToCheck;
         try {
           embedUrl = convertToEmbedUrl(spotifyUrl);
         } catch (error) {
