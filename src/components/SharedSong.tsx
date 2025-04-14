@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import sdk from '@farcaster/frame-sdk';
 import { Context } from '@farcaster/frame-sdk';
 import { ShareIcon } from 'lucide-react';
+import { SpotifyPlayer } from './SpotifyPlayer';
+
 
 function SharedSong() {
   // Extract userId from the URL
@@ -41,17 +43,7 @@ function SharedSong() {
         <Card className="w-full max-w-xl mx-auto">
           <CardContent className="space-y-4">
             <div className="spotify-embed w-full">
-              <iframe
-                style={{ borderRadius: '12px' }}
-                width="100%"
-                height="152"
-                title="Spotify Embed"
-                frameBorder="0"
-                allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                src={embedUrl}
-              ></iframe>
+              <SpotifyPlayer embedUrl={embedUrl} />
             </div>
             <div className='flex flex-row items-center gap-4'>
               <Link href={spotifyUrl}>
