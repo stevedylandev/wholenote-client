@@ -6,7 +6,7 @@ import { Cast } from "../lib/types";
 import { Context } from "@farcaster/frame-sdk"
 import { Button } from "./ui/button";
 import { Link } from "@mini_apps/utilities";
-import { ExternalLinkIcon, Share2Icon } from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
 
 type SpotifyCardProps = {
   cast: Cast;
