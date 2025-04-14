@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link as RouterLink } from 'react-router-dom';
 import { Card, CardContent } from './ui/card';
 import { Link } from '@mini_apps/utilities';
 import { Button } from './ui/button';
 import { useEffect, useState } from 'react';
 import sdk from '@farcaster/frame-sdk';
 import { Context } from '@farcaster/frame-sdk';
+import { ShareIcon } from 'lucide-react';
 
 function SharedSong() {
   // Extract userId from the URL
@@ -31,7 +32,9 @@ function SharedSong() {
     <main className="flex flex-col min-h-screen w-full items-center bg-white text-black dark:bg-black dark:text-white p-4">
       <div className="w-full max-w-2xl mt-2">
         <header className="text-center mb-8">
-          <h1 className="text-5xl font-black mb-2">Wholenote</h1>
+          <RouterLink to="/">
+            <h1 className="text-5xl font-black mb-2">Wholenote</h1>
+          </RouterLink>
           <p className="text-muted-foreground">Discover music shared on Farcaster</p>
         </header>
 
@@ -62,6 +65,7 @@ function SharedSong() {
                   text: `Check out this song! https://share.wholenote.live?url=${spotifyUrl}`,
                   embeds: [`https://share.wholenote.live?url=${spotifyUrl}`]
                 })} className="font-bold cursor-pointer">
+                  <ShareIcon />
                   Share
                 </Button>
               )}
