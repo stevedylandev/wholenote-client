@@ -19,7 +19,7 @@ export function ShareForm() {
   const [error, setError] = useState<string | null>(null)
 
   const validateSpotifyUrl = (url: string): boolean => {
-    const spotifyUrlRegex = /^https:\/\/open\.spotify\.com\/(track|album|playlist|artist)\/[a-zA-Z0-9]+(\?.*)?$/;
+    const spotifyUrlRegex = /^https:\/\/open\.spotify\.com\/(track|album|playlist|artist|show|episode)\/[a-zA-Z0-9]+(\?.*)?$/;
     return spotifyUrlRegex.test(url);
   }
 
