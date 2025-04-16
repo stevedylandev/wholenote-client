@@ -79,11 +79,9 @@ export function SpotifyFeed() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="grid gap-6">
-        {casts.map((cast) => (
-          <SpotifyCard context={context} key={cast.hash} cast={cast} />
-        ))}
-      </div>
+      {casts.map((cast) => (
+        <SpotifyCard context={context} key={cast.hash} cast={cast} />
+      ))}
     </div>
   );
 }

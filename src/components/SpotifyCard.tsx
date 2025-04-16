@@ -101,7 +101,7 @@ export function SpotifyCard({ cast, context }: SpotifyCardProps) {
       )}
       <CardContent className="space-y-4">
         {cleanedText && (
-          <div className="whitespace-pre-line">
+          <div className="whitespace-pre-line truncate">
             <p>{cleanedText}</p>
           </div>
         )}
